@@ -1,0 +1,40 @@
+{
+    "name": "peeker",
+    "version": "1.0",
+    "manifest_version": 2,
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAts7S71V3wtoLgRWcnqNBwM3Ois99/Z8kg645FnbNG99gWW8YB+uPPZnD4gXhaGtA9zCapZ1lThteTiHId9dSri4T3qbU7UtLMfwS8pWvBFwRxAKbwRq7MV1hfK+AvPsMrg3aj/lN4CzZtKvtBkVqwLVYhA5SJLDyhrNddI4TLBszhq9IJCH+pW/VHrh1ZOnABcyPH4t/PZzoO4J76ka5/eKQ2uTHxQrBCZyWpL8/qBMab6mM08X0DqQpLPKkey7gs+rL9OUL9+Wr+9XfgX0lK1yZcjE9YtmDcohj8CBApQYXDXWtoAv7HqUKLJ/98Aamw+FR5aisF5JLTeLdA2jfOwIDAQAB",
+    "oauth2": {
+        "client_id": "1080247212426-g200dqme9dr37ef3o7bg2mmug8d89jhr.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/drive"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "Peeker"
+    },
+    "permissions": [
+        "<all_urls>",
+        "identity",
+        "identity.email",
+        "background",
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+    "background": {
+        "page": "background.html"
+    },
+    "icons": {
+        "16": "icons/icon_16.png",
+        "48": "icons/icon_48.png",
+       "128": "icons/icon_128.png"
+    }
+}
