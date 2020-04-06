@@ -1,15 +1,3 @@
-chrome.runtime.onConnect.addListener(function(port) {
-    port.onMessage.addListener(function(request) {
-        if (request.msg == "getHtmlContent") {
-            port.postMessage({content: document.documentElement.innerHTML});
-        }
-    });
-});
-
-// browser.runtime.onMessage.addListener((message) => {
-//     postMessage({content: document.documentElement.innerHTML});
-// });
-
 document.addEventListener("dblclick", () => {
     chrome.runtime.sendMessage(
         {
@@ -17,4 +5,10 @@ document.addEventListener("dblclick", () => {
             content: document.documentElement.innerHTML
         }, 
         null);
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "checkContentStatus") {
+        sendResponse({"loaded": true});
+    }
 });

@@ -13,4 +13,4 @@ A chrome extension
 2. Click **log in** button, a *google log in page* should pops up
 3. After log in, click **Start Peeking** button and wait, a message should appear at the top of the view and telling you the folder id in which all of the captured html will be stored (the folder name will be *question_\<time-stamp>*)
 4. Go to your Google Drive, and change the visibility of the folder as **ON** so that eveyone can see it
-5. Double-click on a new-created webpage will trigger this extension, and the webpage will be saved to your google drive in the folder created at step 3, (this extension will not work on webpages opened before this extention kicked in)
+5. Double-click on any webpage will trigger this extension, and the webpage will be saved to your google drive in the folder created at step 3

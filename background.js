@@ -45,6 +45,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     return true;
 });
 
+// When "activated-tab" switches to an exsiting tab, load content.js if necessary
+chrome.tabs.onActivated.addListener(activeInfo => {
+    let tabId = activeInfo.tabId;
+
+    chrome.tabs.sendMessage(tabId, {action: "checkContentStatus"}, response => {
+        if(chrome.runtime.lastError) {
+            chrome.tabs.executeScript(tabId, {file: "content.js"}, (result) => {
+                // handle errors
+                if(chrome.runtime.lastError) {
+                    console.log(chrome.runtime.lastError.message);
+                }
+            });
+        }
+    });
+});
+
 /**
  * Generate a random string as boundary for muti-part 
  * uploading, the boundary must not appear in the given content
